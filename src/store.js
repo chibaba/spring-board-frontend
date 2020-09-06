@@ -1,4 +1,4 @@
-import { createStore, applyMidddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 
 import thunk from "redux-thunk";
 
@@ -18,13 +18,13 @@ if (window.navigator.userAgent.includes("chrome") && ReactReduxDevTools) {
     store = createStore(
         rootReducer,
         initialState,
-        compose(applyMidddleware(...middleware), ReactReduxDevTools)
+        compose(applyMiddleware(...middleware), ReactReduxDevTools)
     );
 } else {
     store = createStore(
         rootReducer,
         initialState,
-        compose(applyMidddleware(...middleware))
+        compose(applyMiddleware(...middleware))
     );
 }
 

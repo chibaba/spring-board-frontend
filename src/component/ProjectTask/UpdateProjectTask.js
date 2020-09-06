@@ -14,9 +14,9 @@ class UpdateProjectTask extends Component {
                                 >
                                     Back to Board
                                 </a>
-                                <h4 className="display-4 text-center">
+                                <h6 className="display-6 text-center">
                                     Add /Update Project Task
-                                </h4>
+                                </h6>
                                 <form>
                                     <div className="form-group">
                                         <input
