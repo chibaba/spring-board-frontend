@@ -5,14 +5,22 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/Navbar";
 import ProjectBoard from "./component/ProjectBoard";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AddProjectTask from "./component/ProjectTask/AddProjectTask";
 function App() {
     return (
-        <div className="App">
-            <div>
+        <Router>
+            <div className="App">
                 <Navbar />
-                <ProjectBoard />
+                <Route exact path="/" component={ProjectBoard} />
+
+                <Route
+                    exact
+                    path="/addProjectTask"
+                    component={AddProjectTask}
+                />
             </div>
-        </div>
+        </Router>
     );
 }
 
