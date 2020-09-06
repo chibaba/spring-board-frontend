@@ -3,6 +3,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class AddProjectTask extends Component {
+    constructor() {
+        super();
+        this.state = {
+            summary: "",
+            acceptanceCriteria: "",
+            status: "",
+        };
+    }
+
     render() {
         return (
             <div>
@@ -22,6 +31,7 @@ class AddProjectTask extends Component {
                                             type="text"
                                             className="form-control form-control-lg"
                                             name="summary"
+                                            value={this.state.summary}
                                             placeholder="Project Task summary"
                                         />
                                     </div>
@@ -30,12 +40,14 @@ class AddProjectTask extends Component {
                                             className="form-control form-control-lg"
                                             placeholder="Acceptance Criteria"
                                             name="acceptanceCriteria"
+                                            value="this.state.acceptanceCriteria"
                                         ></textarea>
                                     </div>
                                     <div className="form-group">
                                         <select
                                             className="form-control form-control-lg"
                                             name="status"
+                                            value={this.state.criteria}
                                         >
                                             <option value="">
                                                 Select Status
