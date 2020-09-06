@@ -10,6 +10,7 @@ class AddProjectTask extends Component {
             acceptanceCriteria: "",
             status: "",
         };
+        this.onChange = this.onChange.bind(this);
     }
 
     onChange(e) {
@@ -17,6 +18,11 @@ class AddProjectTask extends Component {
     }
     onSubmit(e) {
         e.preventDefault();
+        const newProjectTask = {
+            summary: this.state.summary,
+            acceptanceCriteria: this.state.acceptanceCriteria,
+            status: this.state.status,
+        };
     }
     render() {
         return (
@@ -57,6 +63,7 @@ class AddProjectTask extends Component {
                                         <select
                                             className="form-control form-control-lg"
                                             name="status"
+                                            value={this.state.status}
                                             onChange={this.onChange}
                                         >
                                             onChange={this.onChange.status}
