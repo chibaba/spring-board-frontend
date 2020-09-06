@@ -12,6 +12,12 @@ class AddProjectTask extends Component {
         };
     }
 
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+    onSubmit(e) {
+        e.preventDefault();
+    }
     render() {
         return (
             <div>
@@ -33,6 +39,7 @@ class AddProjectTask extends Component {
                                             name="summary"
                                             value={this.state.summary}
                                             placeholder="Project Task summary"
+                                            onChange={this.onChange}
                                         />
                                     </div>
                                     <div className="form-group">
@@ -41,14 +48,16 @@ class AddProjectTask extends Component {
                                             placeholder="Acceptance Criteria"
                                             name="acceptanceCriteria"
                                             value="this.state.acceptanceCriteria"
+                                            onChange={this.onChange}
                                         ></textarea>
                                     </div>
                                     <div className="form-group">
                                         <select
                                             className="form-control form-control-lg"
                                             name="status"
-                                            value={this.state.criteria}
+                                            onChange={this.onChange}
                                         >
+                                            onChange={this.onChange.status}
                                             <option value="">
                                                 Select Status
                                             </option>
