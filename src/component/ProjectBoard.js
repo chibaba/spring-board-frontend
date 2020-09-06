@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
+import ProjectTaskItem from "./ProjectTask/ProjectTaskItem";
 
 class ProjectBoard extends Component {
     render() {
@@ -25,6 +26,7 @@ class ProjectBoard extends Component {
                                 </div>
 
                                 {/* <!-- SAMPLE PROJECT TASK STARTS HERE --> */}
+                                <ProjectTaskItem />
 
                                 {/* <!-- SAMPLE PROJECT TASK ENDS HERE --> */}
                             </div>
