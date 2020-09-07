@@ -11,6 +11,7 @@ class AddProjectTask extends Component {
             status: "",
         };
         this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChange(e) {
@@ -23,6 +24,7 @@ class AddProjectTask extends Component {
             acceptanceCriteria: this.state.acceptanceCriteria,
             status: this.state.status,
         };
+        console.log(newProjectTask);
     }
     render() {
         return (
@@ -37,7 +39,7 @@ class AddProjectTask extends Component {
                                 <h4 className="display-4 text-center">
                                     Add /Update Project Task
                                 </h4>
-                                <form>
+                                <form onSubmit={this.onSubmit}>
                                     <div className="form-group">
                                         <input
                                             type="text"
