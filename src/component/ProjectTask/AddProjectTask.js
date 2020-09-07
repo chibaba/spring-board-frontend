@@ -17,9 +17,16 @@ class AddProjectTask extends Component {
             summary: "",
             acceptanceCriteria: "",
             status: "",
+            errors: {},
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
+        }
     }
 
     onChange(e) {
@@ -36,6 +43,7 @@ class AddProjectTask extends Component {
         this.props.addProjectTask(newProjectTask, this.props.history);
     }
     render() {
+        const { errors } = this.state;
         return (
             <div>
                 <div className="addProjectTask">
@@ -58,6 +66,7 @@ class AddProjectTask extends Component {
                                             placeholder="Project Task summary"
                                             onChange={this.onChange}
                                         />
+                                        <p>{errors.summary}</p>
                                     </div>
                                     <div className="form-group">
                                         <textarea
