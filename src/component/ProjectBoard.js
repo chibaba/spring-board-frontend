@@ -32,9 +32,21 @@ class ProjectBoard extends Component {
                         project_task={project_task}
                     />
                 ));
-                for (let i = 0; i < tasks.length; i++) {}
+                for (let i = 0; i < tasks.length; i++) {
+                    if (tasks[i].props.project_task.status === "TO_DO") {
+                        todoItems.push(tasks[i]);
+                    }
+                    if (tasks[i].props.project_task.status === "IN_PROGRESS") {
+                        inProgressItems.push(tasks[i]);
+                    }
+                    if (tasks[i].props.project_task.status === "DONE") {
+                        doneItems.push(tasks[i]);
+                    }
+                }
             }
         };
+
+        BoardAlgorithm(project_tasks);
 
         return (
             <div>
@@ -58,6 +70,7 @@ class ProjectBoard extends Component {
 
                                 {/* <!-- SAMPLE PROJECT TASK STARTS HERE --> */}
                                 {/* <ProjectTaskItem /> */}
+                                {todoItems}
 
                                 {/* <!-- SAMPLE PROJECT TASK ENDS HERE --> */}
                             </div>
@@ -68,6 +81,7 @@ class ProjectBoard extends Component {
                                     </div>
                                 </div>
                                 {/* <!-- SAMPLE PROJECT TASK STARTS HERE --> */}
+                                {inProgressItems}
 
                                 {/* <!-- SAMPLE PROJECT TASK ENDS HERE --> */}
                                 {/* <ProjectTaskItem /> */}
@@ -79,6 +93,7 @@ class ProjectBoard extends Component {
                                     </div>
                                 </div>
                                 {/* <!-- SAMPLE PROJECT TASK STARTS HERE --> */}
+                                {doneItems}
 
                                 {/* <!-- SAMPLE PROJECT TASK ENDS HERE --> */}
                             </div>
