@@ -11,23 +11,31 @@ class ProjectBoard extends Component {
         this.props.getBacklog();
     }
     render() {
-        const {project_tasks} = this.props.project_tasks
+        const { project_tasks } = this.props.project_tasks;
 
         let BoardContent;
-        let todoItems = []
-        let inProgressItems = []
-        let doneItems = [
+        let todoItems = [];
+        let inProgressItems = [];
+        let doneItems = [];
 
-            const BoardAlgorithm = project_tasks => {
-                if(project_tasks.length < 1) {
-                    return (
-                        <div className="alert alert-info text-center" role="alert">
-                            No Project Task on this Board
-                        </div>
-                    )
-                }
+        const BoardAlgorithm = (project_tasks) => {
+            if (project_tasks.length < 1) {
+                return (
+                    <div className="alert alert-info text-center" role="alert">
+                        No Project Task on this Board
+                    </div>
+                );
+            } else {
+                const tasks = project_tasks.map((project_task) => (
+                    <ProjectTaskItem
+                        key={project_task.id}
+                        project_task={project_task}
+                    />
+                ));
+                for (let i = 0; i < tasks.length; i++) {}
             }
-        ]
+        };
+
         return (
             <div>
                 <div className="container">
@@ -84,7 +92,7 @@ class ProjectBoard extends Component {
 
 ProjectBoard.propTypes = {
     getBacklog: PropTypes.func.isRequired,
-    project_task: PropTypes.object.isRequired 
+    project_task: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
     project_task: state.project_task,
