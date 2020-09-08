@@ -7,7 +7,27 @@ import PropTypes from "prop-types";
 import { getBacklog } from "../actions/ProjectTaskActions   ";
 
 class ProjectBoard extends Component {
+    componentDidMount() {
+        this.props.getBacklog();
+    }
     render() {
+        const {project_tasks} = this.props.project_tasks
+
+        let BoardContent;
+        let todoItems = []
+        let inProgressItems = []
+        let doneItems = [
+
+            const BoardAlgorithm = project_tasks => {
+                if(project_tasks.length < 1) {
+                    return (
+                        <div className="alert alert-info text-center" role="alert">
+                            No Project Task on this Board
+                        </div>
+                    )
+                }
+            }
+        ]
         return (
             <div>
                 <div className="container">
@@ -29,7 +49,7 @@ class ProjectBoard extends Component {
                                 </div>
 
                                 {/* <!-- SAMPLE PROJECT TASK STARTS HERE --> */}
-                                <ProjectTaskItem />
+                                {/* <ProjectTaskItem /> */}
 
                                 {/* <!-- SAMPLE PROJECT TASK ENDS HERE --> */}
                             </div>
@@ -42,7 +62,7 @@ class ProjectBoard extends Component {
                                 {/* <!-- SAMPLE PROJECT TASK STARTS HERE --> */}
 
                                 {/* <!-- SAMPLE PROJECT TASK ENDS HERE --> */}
-                                <ProjectTaskItem />
+                                {/* <ProjectTaskItem /> */}
                             </div>
                             <div className="col-md-4">
                                 <div className="card text-center mb-2">
@@ -64,6 +84,7 @@ class ProjectBoard extends Component {
 
 ProjectBoard.propTypes = {
     getBacklog: PropTypes.func.isRequired,
+    project_task: PropTypes.object.isRequired 
 };
 const mapStateToProps = (state) => ({
     project_task: state.project_task,
