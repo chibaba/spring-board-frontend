@@ -6,9 +6,24 @@ import { connect } from "react-redux";
 import { getProjectTask } from "../../actions/ProjectTaskActions";
 
 class UpdateProjectTask extends Component {
+    constructor() {
+        super();
+        this.state = {
+            summary: "",
+            acceptanceCriteria: "",
+            status: "",
+            errors: {},
+        };
+        this.onChange = this.onChange.bind(this);
+    }
+
     componentDidMount() {
         const { pt_id } = this.props.match.params;
         this.props.getProjectTask(pt_id);
+    }
+
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
     }
     render() {
         return (
@@ -33,6 +48,8 @@ class UpdateProjectTask extends Component {
                                             className="form-control form-control-lg"
                                             name="summary"
                                             placeholder="Project Task summary"
+                                            value={this.state.summary}
+                                            onChange={this.onChange}
                                         />
                                     </div>
                                     <div className="form-group">
@@ -40,12 +57,18 @@ class UpdateProjectTask extends Component {
                                             className="form-control form-control-lg"
                                             placeholder="Acceptance Criteria"
                                             name="acceptanceCriteria"
+                                            value={
+                                                this.state.acceptanceCriteria
+                                            }
+                                            onChange={this.onChange}
                                         ></textarea>
                                     </div>
                                     <div className="form-group">
                                         <select
                                             className="form-control form-control-lg"
                                             name="status"
+                                            value={this.state.status}
+                                            onChange={this.onChange}
                                         >
                                             <option value="">
                                                 Select Status
