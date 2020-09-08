@@ -6,6 +6,10 @@ import { connect } from "react-redux";
 import { getProjectTask } from "../../actions/ProjectTaskActions";
 
 class UpdateProjectTask extends Component {
+    componentDidMount() {
+        const { pt_id } = this.props.match.params;
+        this.props.getProjectTask(pt_id);
+    }
     render() {
         return (
             <div>
