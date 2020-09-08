@@ -22,6 +22,21 @@ class UpdateProjectTask extends Component {
         this.props.getProjectTask(pt_id);
     }
 
+    componentWillReceiveProps(nextProps) {
+        const {
+            id,
+            summary,
+            acceptanceCriteria,
+            status,
+        } = nextProps.project_task;
+        this.setState({
+            id,
+            summary,
+            acceptanceCriteria,
+            status,
+        });
+    }
+
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
     }
