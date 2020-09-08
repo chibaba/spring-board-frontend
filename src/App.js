@@ -7,6 +7,8 @@ import Navbar from "./component/Navbar";
 import ProjectBoard from "./component/ProjectBoard";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddProjectTask from "./component/ProjectTask/AddProjectTask";
+import UpdateProjectTask from "./component/ProjectTask/UpdateProjectTask";
+
 import { Provider } from "react-redux";
 import store from "./store";
 function App() {
@@ -21,6 +23,11 @@ function App() {
                         exact
                         path="/addProjectTask"
                         component={AddProjectTask}
+                    />
+                    <Route
+                        exact
+                        path="/updateProjectTask/:pt_id"
+                        component={UpdateProjectTask}
                     />
                 </div>
             </Router>
