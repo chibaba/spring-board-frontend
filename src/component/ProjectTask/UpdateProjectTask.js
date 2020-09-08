@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import classnames from "classnames";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getProjectTask } from "../../actions/ProjectTaskActions";
 
 class UpdateProjectTask extends Component {
     render() {
@@ -61,5 +66,9 @@ class UpdateProjectTask extends Component {
         );
     }
 }
+const mapStateToProps = (state) => ({
+    project_task: state.project_task,
+    errors: state.errors,
+});
 
-export default UpdateProjectTask;
+export default connect(mapStateToProps, { getProjectTask })(UpdateProjectTask);
