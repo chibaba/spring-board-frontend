@@ -70,5 +70,10 @@ const mapStateToProps = (state) => ({
     project_task: state.project_task,
     errors: state.errors,
 });
+UpdateProjectTask.propTypes = {
+    project_task: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+    getProjectTask: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, { getProjectTask })(UpdateProjectTask);
